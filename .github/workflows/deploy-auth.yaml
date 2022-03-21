@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "The DOCKER_USERNAME is:${{secrets.DOCKER_USERNAME}}"
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - run: cd auth && docker build -t denzik10/auth .
         env:
