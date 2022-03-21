@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd auth && docker build -t denzik10/auth .
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKERHUB_TOKEN
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: docker push denzik10/auth
